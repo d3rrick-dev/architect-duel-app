@@ -62,7 +62,7 @@ export default function App() {
     <div className="min-h-screen bg-slate-950 text-slate-100 p-6 font-mono selection:bg-emerald-500/30">
       <header className="mb-10 flex justify-between items-center border-b border-slate-800 pb-4">
         <h1 className="text-xl font-bold flex items-center gap-2">
-          <Terminal className="text-emerald-400" size={10} /> ARCHITECT DUEL
+          <Terminal className="text-emerald-400" size={30} /> ARCHITECT DUEL
         </h1>
         <div className="flex items-center gap-2">
            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
