@@ -3,11 +3,14 @@ import Dexie, { type Table } from 'dexie';
 export interface Challenge {
   id?: number;
   title: string;
-  system: string;
+  category: 'System' | 'Frontend' | 'Security' | 'DevOps' | 'AI';  
+  subTopic: string;
+  system: string; 
   symptom: string;
   chaosFactor: string;
   solutionClues: string[];
-  level: 'Senior' | 'Staff' | 'Principal';
+  level: 'Senior';
+  isResolved?: boolean;
 }
 
 export class ArchitectDatabase extends Dexie {
@@ -16,7 +19,7 @@ export class ArchitectDatabase extends Dexie {
   constructor() {
     super('ArchitectDuelDB');
     this.version(1).stores({
-      challenges: '++id, level, system' 
+      challenges: '++id, category, level, isResolved, subTopic' 
     });
   }
 }
