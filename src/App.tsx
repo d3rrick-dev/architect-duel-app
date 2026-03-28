@@ -9,14 +9,18 @@ export default function App() {
   const duel = useDuel();
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" && !duel.currentChallenge) {
+  if (e.key === "Enter") {
+    e.preventDefault(); 
+
+    if (!duel.currentChallenge) {
       if (duel.searchQuery.trim() !== "" && duel.filteredChallenges.length > 0) {
         duel.selectChallenge(duel.filteredChallenges[0]);
-      } else {
+      } else if (duel.searchQuery.trim() === "") {
         duel.triggerNextUnresolved();
       }
     }
-  };
+  }
+};
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-6 font-mono">
